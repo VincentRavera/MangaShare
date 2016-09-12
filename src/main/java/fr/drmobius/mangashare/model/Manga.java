@@ -26,15 +26,18 @@ public class Manga implements Serializable{
 	private List<Genre> genres;
 	
 	private String desc;
+	
+	private String url;
 
 	public Manga() {
 
 	}
 
-	public Manga(Long id, List<Genre> lg, String str) {
+	public Manga(Long id, List<Genre> lg, String descr, String url) {
 		this.id = id;
 		this.genres = lg;
-		this.desc = str;
+		this.desc = descr;
+		this.url = url;
 	}
 
 	public Long getId() {
@@ -59,6 +62,14 @@ public class Manga implements Serializable{
 
 	public void setDesc(String desc) {
 		this.desc = desc;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 }
