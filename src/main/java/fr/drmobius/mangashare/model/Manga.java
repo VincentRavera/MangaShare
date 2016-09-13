@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Manga implements Serializable{
@@ -28,6 +29,9 @@ public class Manga implements Serializable{
 	private String desc;
 	
 	private String url;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	private List<Commentaire> commentaires;
 
 	public Manga() {
 

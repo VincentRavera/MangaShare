@@ -6,10 +6,13 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
+import fr.drmobius.mangashare.dao.CommentaireDAO;
 import fr.drmobius.mangashare.dao.GenreDAO;
 import fr.drmobius.mangashare.dao.MangaDAO;
+import fr.drmobius.mangashare.services.CommentaireService;
 import fr.drmobius.mangashare.services.GenreService;
 import fr.drmobius.mangashare.services.MangaService;
+import fr.drmobius.mangashare.services.impl.CommentaireServiceImpl;
 import fr.drmobius.mangashare.services.impl.GenreServiceImpl;
 import fr.drmobius.mangashare.services.impl.MangaServiceImpl;
 
@@ -36,6 +39,13 @@ public class ApplicationConfiguration {
 		GenreServiceImpl genreServiceImpl = new GenreServiceImpl();
 		genreServiceImpl.setGenreDAO(genreDAO);
 		return genreServiceImpl;
+	}
+	
+	@Bean
+	public CommentaireService commentaireService(CommentaireDAO commentaireDAO){
+		CommentaireServiceImpl commentaireServiceImpl = new CommentaireServiceImpl();
+		commentaireServiceImpl.setCommentaireDAO(commentaireDAO);
+		return commentaireServiceImpl;
 	}
 	
 	
