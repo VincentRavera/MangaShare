@@ -1,6 +1,7 @@
 package fr.drmobius.mangashare.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -30,6 +31,10 @@ public class Manga implements Serializable{
 	
 	private String url;
 	
+	private Date dateDeCreationDuPost;
+	
+	private Boolean aLire;
+	
 	@ManyToOne(fetch=FetchType.LAZY)
 	private List<Commentaire> commentaires;
 
@@ -37,11 +42,15 @@ public class Manga implements Serializable{
 
 	}
 
-	public Manga(Long id, List<Genre> lg, String descr, String url) {
+	public Manga(Long id, List<Genre> lg, String descr,
+			String url, List<Commentaire> coms, Date date, Boolean toRead) {
 		this.id = id;
 		this.genres = lg;
 		this.desc = descr;
 		this.url = url;
+		this.commentaires = coms;
+		this.dateDeCreationDuPost = date;
+		this.aLire = toRead;
 	}
 
 	public Long getId() {
@@ -74,6 +83,30 @@ public class Manga implements Serializable{
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	public Date getDateDeCreationDuPost() {
+		return dateDeCreationDuPost;
+	}
+
+	public void setDateDeCreationDuPost(Date dateDeCreationDuPost) {
+		this.dateDeCreationDuPost = dateDeCreationDuPost;
+	}
+
+	public List<Commentaire> getCommentaires() {
+		return commentaires;
+	}
+
+	public void setCommentaires(List<Commentaire> commentaires) {
+		this.commentaires = commentaires;
+	}
+
+	public Boolean getaLire() {
+		return aLire;
+	}
+
+	public void setaLire(Boolean aLire) {
+		this.aLire = aLire;
 	}
 
 }

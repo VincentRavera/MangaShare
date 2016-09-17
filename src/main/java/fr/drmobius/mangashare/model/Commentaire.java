@@ -1,6 +1,7 @@
 package fr.drmobius.mangashare.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -25,16 +26,19 @@ public class Commentaire implements Serializable{
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Manga manga;
+	
+	private Date dateDuPost;
 
 	public Commentaire() {
 		super();
 	}
 
-	public Commentaire(Long id, String commentaire, Manga manga) {
+	public Commentaire(Long id, String commentaire, Manga manga, Date date) {
 		super();
 		this.id = id;
 		this.commentaire = commentaire;
 		this.manga = manga;
+		this.dateDuPost = date;
 	}
 
 	public Long getId() {
@@ -59,6 +63,14 @@ public class Commentaire implements Serializable{
 
 	public void setManga(Manga manga) {
 		this.manga = manga;
+	}
+
+	public Date getDateDuPost() {
+		return dateDuPost;
+	}
+
+	public void setDateDuPost(Date dateDuPost) {
+		this.dateDuPost = dateDuPost;
 	}
 	
 }
