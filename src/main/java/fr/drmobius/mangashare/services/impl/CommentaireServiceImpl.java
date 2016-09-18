@@ -2,6 +2,8 @@ package fr.drmobius.mangashare.services.impl;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import fr.drmobius.mangashare.dao.CommentaireDAO;
 import fr.drmobius.mangashare.model.Commentaire;
 import fr.drmobius.mangashare.services.CommentaireService;
@@ -13,7 +15,7 @@ public class CommentaireServiceImpl implements CommentaireService{
 	public CommentaireDAO getCommentaireDAO() {
 		return dao;
 	}
-
+	
 	public void setCommentaireDAO(CommentaireDAO commentaireDAO) {
 		this.dao = commentaireDAO;
 	}
@@ -34,21 +36,21 @@ public class CommentaireServiceImpl implements CommentaireService{
 	}
 
 	@Override
-	public Commentaire createCommentaire(Commentaire com) {
-		return dao.createCommentaire(com);
+	@Transactional
+	public Commentaire save(Commentaire com) {
+		return dao.save(com);
 	}
 
 	@Override
+	@Transactional
 	public Commentaire updateCommentaire(Commentaire com) {
-		return dao.updateCommentaire(com);
+		return dao.save(com);
 	}
 
 	@Override
-	public void removeCommentaire(Commentaire com) {
-		dao.removeCommentaire(com);
+	@Transactional
+	public void remove(Commentaire com) {
+		dao.remove(com);
 	}
-	
-	
-	
 
 }

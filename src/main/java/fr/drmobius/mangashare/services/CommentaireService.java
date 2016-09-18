@@ -12,11 +12,11 @@ public interface CommentaireService {
 	
 	public List<Commentaire> getAllCommentaireByManga(Long id);
 	
-	public Commentaire createCommentaire(Commentaire com);
-	
 	public Commentaire updateCommentaire(Commentaire com);
 	
-	public void removeCommentaire(Commentaire com);
+	public void remove(Commentaire com);
+
+	Commentaire save(Commentaire com);
 	
 
 }

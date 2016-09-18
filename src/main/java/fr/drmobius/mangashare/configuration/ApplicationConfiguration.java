@@ -25,29 +25,26 @@ public class ApplicationConfiguration {
 	public static PropertySourcesPlaceholderConfigurer placeholderConfigurer() {
 		return new PropertySourcesPlaceholderConfigurer();
 	}
-	
-	
+
 	@Bean
-	public MangaService mangaService(MangaDAO mangaDAO){
+	public MangaService mangaService(MangaDAO mangaDAO) {
 		MangaServiceImpl mangaServiceImpl = new MangaServiceImpl();
 		mangaServiceImpl.setMangaDAO(mangaDAO);
 		return mangaServiceImpl;
 	}
-	
+
 	@Bean
-	public GenreService genreService(GenreDAO genreDAO){
+	public GenreService genreService(GenreDAO genreDAO) {
 		GenreServiceImpl genreServiceImpl = new GenreServiceImpl();
 		genreServiceImpl.setGenreDAO(genreDAO);
 		return genreServiceImpl;
 	}
-	
+
 	@Bean
-	public CommentaireService commentaireService(CommentaireDAO commentaireDAO){
+	public CommentaireService commentaireService(CommentaireDAO commentaireDAO) {
 		CommentaireServiceImpl commentaireServiceImpl = new CommentaireServiceImpl();
 		commentaireServiceImpl.setCommentaireDAO(commentaireDAO);
 		return commentaireServiceImpl;
 	}
-	
-	
 
 }

@@ -23,7 +23,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "fr.treeptik.veterinaireweb.dao", entityManagerFactoryRef = "entityManagerFactory")
+@EnableJpaRepositories(basePackages = "fr.drmobius.mangashare.dao", entityManagerFactoryRef = "entityManagerFactory")
 public class DataConfiguration {
 	private Logger logger = LoggerFactory.getLogger(DataConfiguration.class);
 
@@ -50,11 +50,12 @@ public class DataConfiguration {
 	@Bean(name = "dataSource")
 	@Profile("test")
 	public DataSource dataSourceTest() {
+		logger.info("chargement datasource profile test");
 		BasicDataSource dataSource = new BasicDataSource();
-		dataSource.setDriverClassName(environment.getProperty("db.driverclassname"));
-		dataSource.setUrl("jdbc:mysql://localhost:3306/springsampletest");
-		dataSource.setUsername(environment.getProperty("db.username"));
-		dataSource.setPassword(environment.getProperty("db.password"));
+		dataSource.setDriverClassName(environment.getProperty("dbtest.driverclassname"));
+		dataSource.setUrl("dbtest.url");
+		dataSource.setUsername(environment.getProperty("dbtest.username"));
+		dataSource.setPassword(environment.getProperty("dbtest.password"));
 		return dataSource;
 	}
 
@@ -76,7 +77,7 @@ public class DataConfiguration {
 		properties.put("hibernate.generate_statistics", true);
 
 		localContainerEntityManagerFactoryBean.setJpaProperties(properties);
-		localContainerEntityManagerFactoryBean.setPackagesToScan("fr.treeptik.veterinaireweb.model");
+		localContainerEntityManagerFactoryBean.setPackagesToScan("fr.drmobius.mangashare.model");
 
 		return localContainerEntityManagerFactoryBean;
 
