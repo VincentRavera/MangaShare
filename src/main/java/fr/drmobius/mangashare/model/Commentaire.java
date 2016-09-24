@@ -13,9 +13,6 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Commentaire implements Serializable{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
