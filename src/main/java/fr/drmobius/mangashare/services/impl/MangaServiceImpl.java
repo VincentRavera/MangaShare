@@ -25,7 +25,7 @@ public class MangaServiceImpl implements MangaService{
 
 	@Override
 	public Manga findById(Long id) {
-		return mangaDAO.findById(id);
+		return mangaDAO.findOne(id);
 	}
 	
 	
