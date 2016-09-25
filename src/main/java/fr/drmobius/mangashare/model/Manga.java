@@ -24,6 +24,10 @@ public class Manga implements Serializable{
 	@ManyToMany(fetch=FetchType.LAZY, mappedBy="mangas")
 	private List<Genre> genres;
 	
+	private String nom;
+	
+	private Date date;
+	
 	private String desc;
 	
 	private String url;
@@ -104,6 +108,22 @@ public class Manga implements Serializable{
 
 	public void setaLire(Boolean aLire) {
 		this.aLire = aLire;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 
 }
