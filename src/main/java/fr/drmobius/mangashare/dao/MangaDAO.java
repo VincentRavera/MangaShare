@@ -12,8 +12,6 @@ public interface MangaDAO extends JpaRepository<Manga, Long> {
 
     List<Manga> findByNom(String nom) throws DataAccessException;
 
-    List<Manga> findAll() throws DataAccessException;
-
     @Query("SELECT m FROM Manga m ORDER BY m.date")
     List<Manga> findAllOrdred() throws DataAccessException;
 

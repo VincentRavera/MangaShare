@@ -22,12 +22,12 @@ public class CommentaireServiceImpl implements CommentaireService{
 
 	@Override
 	public Commentaire getCommentaireById(Long id) {
-		return dao.getCommentaireById(id);
+		return dao.findOne(id);
 	}
 
 	@Override
 	public List<Commentaire> getAllCommentaire() {
-		return dao.getAllCommentaire();
+		return dao.findAll();
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class CommentaireServiceImpl implements CommentaireService{
 	@Override
 	@Transactional
 	public void remove(Commentaire com) {
-		dao.remove(com);
+		dao.delete(com);
 	}
 
 }

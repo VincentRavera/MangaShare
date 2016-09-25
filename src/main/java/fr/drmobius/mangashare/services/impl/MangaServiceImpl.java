@@ -6,28 +6,36 @@ import fr.drmobius.mangashare.dao.MangaDAO;
 import fr.drmobius.mangashare.model.Manga;
 import fr.drmobius.mangashare.services.MangaService;
 
-public class MangaServiceImpl implements MangaService{
-	
-	private MangaDAO mangaDAO;
+public class MangaServiceImpl implements MangaService {
 
-	public MangaDAO getMangaDAO() {
-		return mangaDAO;
-	}
+    private MangaDAO mangaDAO;
 
-	public void setMangaDAO(MangaDAO mangaDAO) {
-		this.mangaDAO = mangaDAO;
-	}
+    public MangaDAO getMangaDAO() {
+        return mangaDAO;
+    }
 
-	@Override
-	public List<Manga> findAll() {
-		return mangaDAO.findAllOrdred();
-	}
+    public void setMangaDAO(MangaDAO mangaDAO) {
+        this.mangaDAO = mangaDAO;
+    }
 
-	@Override
-	public Manga findById(Long id) {
-		return mangaDAO.findOne(id);
-	}
-	
-	
+    @Override
+    public List<Manga> findAll() {
+        return mangaDAO.findAllOrdred();
+    }
+
+    @Override
+    public Manga findById(Long id) {
+        return mangaDAO.findOne(id);
+    }
+
+    @Override
+    public Manga save(Manga manga) {
+        return mangaDAO.save(manga);
+    }
+
+    @Override
+    public void delete(Long id) {
+        mangaDAO.delete(id);
+    }
 
 }
